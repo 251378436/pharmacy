@@ -1,5 +1,6 @@
 <template>
     <div>
+        <h1>This is the test</h1>
         <button v-on:click="test()">Test</button>
         {{moduleASysUser}} <br>
         <counter></counter>
