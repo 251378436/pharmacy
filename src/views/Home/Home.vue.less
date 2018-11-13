@@ -1,0 +1,86 @@
+#home {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+#content {
+    flex-grow: 1;
+    overflow-y: scroll;
+}
+
+#list {
+    flex-grow: 1;
+    overflow-x: hidden;
+    padding-top: 10px;
+    padding-bottom: 30px;
+
+    .card-footer {
+        padding: 0%;
+    }
+    .btn-cart {
+        width: 100%;
+        background: #DD4B39;
+        color: white;
+        font: 700 15px/40px Arial,Helvetica,sans-serif;
+    }
+    .card-special {
+        width: 220px; 
+        padding: 10px; 
+        border: none;
+
+        .card-body {
+            padding: 0%;
+        }
+        .card-img-top {
+            height: 200px;
+        }
+        .product-name {
+            margin: 0 0;
+            height: 48px;
+            font-weight: 700;
+            line-height: 16px;
+            font-size: 13px;
+            overflow: hidden;
+        }
+        .price-box {
+            display: inline-block;
+            margin: 5px 0;
+            width: 100%;
+
+            .regular-deleted-price {
+                display: inline-block;
+                font-weight: 400;
+                color: #878787;
+                text-decoration: line-through;
+            }
+            .special-price {
+                display: inline-block;
+                font-size: 24px;
+                font-weight: 700;
+                color: #D82F34;
+            }
+            .regular-price {
+                display: inline-block;
+                font-weight: 700;
+                font-size: 24px;
+                color: #222;
+            }
+            p {
+                margin-bottom: 0%;
+            }
+        }
+    }
+}
+
+#search {
+    background: #ff8c66;
+    padding: 10px 20px;
+}
+
+#navigation {
+    background: #ece7e7;
+    border-right: 1px solid #e7e7e7;
+    padding: 0%;    
+}
