@@ -29,11 +29,9 @@ export default class Counter extends Vue  {
     
     //
     //...mapState(['name', 'age']);
-    console.log('I can submit waht I want');
 
     get count() {
         return this.$store.state.count;
-        console.log('I can submit waht I want');
     }
 
 
