@@ -25,7 +25,7 @@ export default class Counter extends Vue  {
     @Getter getValue: any
     @State years: any
 
-    name: string = 'hwllo bo hello bobobo';
+    name: string = 'hello bo this is master';
     
     //
     //...mapState(['name', 'age']);
