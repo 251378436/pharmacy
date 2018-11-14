@@ -71,7 +71,11 @@ export default class Test extends Vue  {
         console.log(this.moduleACount);
         this.moduleAUserLoad({ name: "6", age: 16 });
         console.log(this.moduleACount);
+<<<<<<< HEAD
         console.log(this.moduleACount);
+=======
+        console.log(this);
+>>>>>>> test
     }
 }
 </script>
