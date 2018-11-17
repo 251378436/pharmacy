@@ -24,10 +24,10 @@
               {{item.currentPrice}}
           </div>
           <div class="col-2">
-              {{item.quantity}}
+              <i class="fas fa-minus"></i> {{item.quantity}} <i class="fas fa-plus"></i>
           </div>
           <div class="col-2">
-              ${{item.calculatedAmount}} NZD
+              ${{item.calculatedAmount}} NZD <i class="fas fa-trash-alt"></i>
           </div>
       </div>
     </div>

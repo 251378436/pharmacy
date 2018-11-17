@@ -14,6 +14,10 @@ export default class ShoppingCart extends Vue {
 
   created() {
     this.getProducts();
+    this.updateShoppingCart();
+  }
+
+  updateShoppingCart() {
     this.getDataFromLocalStorage();
     this.getShoppingCartList();
   }
