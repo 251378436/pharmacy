@@ -19,4 +19,8 @@ export class Product {
     get photoUrl() {
         return require(`@/assets/${this.photo}.png`);
     }
+
+    get currentPrice() {
+        return this.specialPrice ? this.specialPrice : this.regularPrice;
+    }
 }

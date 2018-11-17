@@ -42,11 +42,11 @@ export default new Vuex.Store({
             if (localStorage.shoppingCart) {
                 var items = JSON.parse(localStorage.getItem("shoppingCart") || '');
                 var item = items.find((x: any) => x.productId == productId);
-                item ? item.count++ : items.push({productId: productId, count: 1});
+                item ? item.quantity++ : items.push({productId: productId, quantity: 1});
                 localStorage.setItem('shoppingCart', JSON.stringify(items));
             } else {
                 var items: any = [];
-                items[0] = { productId: productId, count: 1};
+                items[0] = { productId: productId, quantity: 1};
                 localStorage.setItem('shoppingCart', JSON.stringify(items));
             }
         } else {
