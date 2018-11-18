@@ -48,7 +48,7 @@ export default class Test extends Vue  {
         //this.increment({amount: 10});
         //this.SOME_MUTATION_TEST(10);
         
-        // console.log(this);
+        // console.log(this);76767676
 
         // console.log(this.$store.state.count) // -> 1
 
