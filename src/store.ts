@@ -54,7 +54,7 @@ export default new Vuex.Store({
         }
     },
     addToCartAnimation() {
-        alert("成功添加到购物车");
+        this._vm.$dialog.alert('添加成功', {okText: '继续'});
     }
   },
   actions: {

@@ -1,7 +1,7 @@
 import { Component, Vue } from 'vue-property-decorator';
 import {Product} from '@/Models/Product';
 import { ShoppingCartItem } from '@/Models/ShoppingCartItem';
-
+import _ from 'underscore';
 
 @Component({
   components: {
@@ -86,5 +86,69 @@ export default class ShoppingCart extends Vue {
       this.shoppingCartList.push(new ShoppingCartItem(item));
     });
     console.log(this.shoppingCartList);
+  }
+
+  updateDataInLocalStorage() {
+    if(typeof(Storage) !== 'undefined') {
+        localStorage.setItem('shoppingCart', JSON.stringify(this.localStorage));
+    } else {
+        alert('Sorry, your browser does not support web storage...');
+    }
+  }
+
+  increaseQuantity(productId: string) {
+    console.log(productId);
+    var item = this.localStorage.find(x => x.productId == productId);
+    item.quantity++;
+    console.log(this.localStorage);
+    this.updateDataInLocalStorage();
+    this.updateShoppingCart();
+  }
+
+  decreaseQuantity(productId: string) {
+    var item = this.localStorage.find(x => x.productId == productId);
+    if((item.quantity - 1)) {
+      item.quantity--;
+      this.updateDataInLocalStorage();
+      this.updateShoppingCart();
+    } else {
+      this.deleteItem(productId);
+    }
+  }
+
+  deleteItem(productId: string) {
+    var message = "你确定要删除这条记录吗?";
+ 
+    var options = {
+        html: false, // set to true if your message contains HTML tags. eg: "Delete <b>Foo</b> ?"
+        loader: false, // set to true if you want the dailog to show a loader after click on "proceed"
+        reverse: false, // switch the button positions (left to right, and vise versa)
+        okText: '确定',
+        cancelText: '取消',
+        animation: 'zoom', // Available: "zoom", "bounce", "fade"
+        type: 'basic', // coming soon: 'soft', 'hard'
+        verification: 'continue', // for hard confirm, user will be prompted to type this to enable the proceed button
+        verificationHelp: 'Type "[+:verification]" below to confirm', // Verification help text. [+:verification] will be matched with 'options.verification' (i.e 'Type "continue" below to confirm')
+        clicksCount: 3, // for soft confirm, user will be asked to click on "proceed" btn 3 times before actually proceeding
+        backdropClose: false, // set to true to close the dialog when clicking outside of the dialog window, i.e. click landing on the mask 
+        customClass: '' // Custom class to be injected into the parent node for the current dialog instance
+    };
+
+    this.$dialog.confirm(message, options)
+      .then(() => {
+        console.log("yes");
+        console.log(this.localStorage);
+        var even = _.find([1, 2, 3, 4, 5, 6], (num: any) => num % 2 == 0);
+        console.log(even);
+        var item = this.localStorage.find( (x: any) => x.productId == productId);
+        var index = this.localStorage.indexOf(item);
+        this.localStorage.splice(index, 1);
+        console.log(this.localStorage);
+        this.updateDataInLocalStorage();
+        this.updateShoppingCart();
+      })
+      .catch(() => {
+        console.log("no");
+      });
   }
 }
