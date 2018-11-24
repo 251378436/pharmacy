@@ -1,3 +1,5 @@
+import jwt_decode from 'jwt-decode';
+
 export class UserService {
     static IsLogin() {
         if(localStorage.getItem("token")) {
@@ -14,7 +16,11 @@ export class UserService {
 
     static User() {
         if(UserService.IsLogin()) {
-            return "yes";
+            var token = localStorage.getItem('token');
+            console.log(token);
+            var decoded = jwt_decode(token);
+            console.log(decoded);
+            return decoded;
         } else {
             return "no";
         }
