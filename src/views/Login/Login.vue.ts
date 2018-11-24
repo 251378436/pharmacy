@@ -20,6 +20,8 @@ export default class Login extends Vue {
                 this.$router.push('profile'); 
             }
 
+            console.log(UserService.User());
+
         } else {
             alert('incorrect username and phone number');
         }
