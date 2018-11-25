@@ -6,10 +6,26 @@ import { UserService } from '@/Services/UserService';
     },
   })
 export default class Login extends Vue {
-    userName: string = 'zjgslongbo';
-    phoneNumber: string = '13429192832';
+    userName: string = '';
+    phoneNumber: string = '';
 
+    
+      
     userLogin() {
+        console.log(this.errors);
+        console.log(this.$validator);
+        
+        
+        this.$validator.validateAll().then(result => {
+            //this.$validator.localize('ja');
+            console.log(this.$validator);
+            if(result) {
+                console.log('yes, it is true');
+            } else {
+                console.log('not all valid');
+            }
+        });
+        
         if(this.userName == 'zjgslongbo' && this.phoneNumber == '13429192832') {
             UserService.UserLogin(this.userName, this.phoneNumber);
             
@@ -23,7 +39,16 @@ export default class Login extends Vue {
             console.log(UserService.User());
 
         } else {
-            alert('incorrect username and phone number');
+            //alert('incorrect username and phone number');
         }
+    }
+
+    created() {
+        this.$validator.extend('truthy', {
+            getMessage: (field: any) => 'The ' + field + ' value is not truthy.',
+            validate: (value: any) => {
+                return value.length == 11 && /^((13|14|15|17|18)[0-9]{1}\d{8})$/.test(value);
+            }
+          });
     }
 }

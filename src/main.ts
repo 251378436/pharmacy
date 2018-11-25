@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import VeeValidate from 'vee-validate';
 import App from './App.vue';
 import router from './router';
 import store from './store';
@@ -12,6 +13,9 @@ import { UserService } from '@/Services/UserService';
 Vue.config.productionTip = false;
 
 Vue.use(VuejsDialog);
+
+Vue.use(VeeValidate);
+
 
 router.beforeEach((to, from, next) => {
   if(to.matched.some(record => record.meta.requireAuth)) {
