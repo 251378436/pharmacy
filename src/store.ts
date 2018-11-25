@@ -13,7 +13,8 @@ export default new Vuex.Store({
     todos: [
         {id: 1, text: '...', done: true },
         {id: 2, text: '...', done: false },
-    ]
+    ],
+    isShowLoader: false
   },
   getters: {
       doneTodos: state => {
@@ -55,6 +56,12 @@ export default new Vuex.Store({
     },
     addToCartAnimation() {
         this._vm.$dialog.alert('添加成功', {okText: '继续'});
+    },
+    showLoader(state) {
+        state.isShowLoader = true;
+    },
+    hideLoader(state) {
+        state.isShowLoader = false;
     }
   },
   actions: {

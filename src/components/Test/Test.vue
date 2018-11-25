@@ -4,6 +4,10 @@
         <button v-on:click="test()">Test</button>
         {{moduleASysUser}} <br>
         <counter></counter>
+        <div>
+            <button @click="showLoader">Show loader</button>
+            <button @click="hideLoader">hide loader</button>
+        </div>
     </div>
 </template>
 
@@ -25,6 +29,7 @@ const moduleA = namespace('moduleA');
     },
 })
 export default class Test extends Vue  {
+    @State isShowLoader: any;
     @Mutation increment: any;
     @Mutation SOME_MUTATION_TEST: any;
     @Action('incrementAction') incrementAction: any;
@@ -72,6 +77,16 @@ export default class Test extends Vue  {
         this.moduleAUserLoad({ name: "6", age: 16 });
         console.log(this.moduleACount);
         console.log(this.moduleACount);
+    }
+
+    showLoader() {
+        this.$store.commit('showLoader');
+        //console.log(this.isShowLoader);
+    }
+
+    hideLoader() {
+        this.$store.commit('hideLoader');
+        //console.log(this.isShowLoader);
     }
 }
 </script>

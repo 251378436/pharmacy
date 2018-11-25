@@ -1,14 +1,22 @@
 import { Component, Vue } from 'vue-property-decorator';
 import { UserService } from '@/Services/UserService';
+import {
+    State,
+    Getter,
+    Action,
+    Mutation,
+    namespace
+  } from 'vuex-class';
 
 @Component({
     components: {
     },
   })
 export default class Login extends Vue {
-    userName: string = '';
-    phoneNumber: string = '';
-
+    userName: string = 'zjgslongbo';
+    phoneNumber: string = '13429192832';
+    @Mutation showLoader: any;
+    @Mutation hideLoader: any;
     
       
     userLogin() {
@@ -27,6 +35,8 @@ export default class Login extends Vue {
         });
         
         if(this.userName == 'zjgslongbo' && this.phoneNumber == '13429192832') {
+            this.showLoader();
+            var self = this;
             UserService.UserLogin(this.userName, this.phoneNumber);
             
             if(this.$route.query.redirect) {
@@ -37,6 +47,9 @@ export default class Login extends Vue {
             }
 
             console.log(UserService.User());
+            setTimeout(() => {
+                self.hideLoader();
+            }, 2000);
 
         } else {
             //alert('incorrect username and phone number');
