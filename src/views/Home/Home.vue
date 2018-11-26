@@ -17,7 +17,7 @@
       <div id="list" class="col-9">
         <div class="row">
           <div class="card card-special" v-for="product in filteredProducts" v-bind:key="product.id">
-            <img class="card-img-top" :src="product.photoUrl" alt="Card image" style="width:100%">
+            <img class="card-img-top" :src="product.showPhoto ? product.photoUrl : ''" alt="点击显示图片" @click="product.showPhoto = true" style="width:100%">
             <div class="card-body">
               <div class="product-name">
                 <span>{{ product.description }}</span>  

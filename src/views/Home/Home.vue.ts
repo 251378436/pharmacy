@@ -39,8 +39,6 @@ export default class Home extends Vue {
       this.filteredProducts = this.products;
       this.searchText = this.searchText.trim();
       var criterias = this.searchText.split(' ');
-      console.log(this.searchText);
-      console.log(criterias);
       criterias.forEach(criteria => {
         this.filteredProducts = this.filteredProducts.filter(p => p.description.toLowerCase().includes(criteria.toLowerCase()));
       });
@@ -55,7 +53,7 @@ export default class Home extends Vue {
   getProducts() {
     this.products.push(new Product({
         id: '2549069',
-        description: 'Go Healthy Go @ease Capsules 5 (Single Pack of 5 doses) p1',
+        description: 'Goose Kiwi Go @ease Capsules 5 (Single Pack of 5 doses) p1',
         regularPrice: 9.99,
         specialPrice: 5.66,
         isHotProduct: true,
@@ -64,7 +62,7 @@ export default class Home extends Vue {
     }))
     this.products.push(new Product({
       id: '2549070',
-      description: 'Go Healthy Go @ease Capsules 5 (Single Pack of 5 doses) p2',
+      description: 'Goose Kiwi Go @ease Capsules 5 (Single Pack of 5 doses) p2',
       regularPrice: 14.99,
       isHotProduct: true,
       categoryId: 'p2',
@@ -72,7 +70,7 @@ export default class Home extends Vue {
   }))
   this.products.push(new Product({
     id: '2549071',
-    description: 'Go Healthy Go @ease Capsules 5 (Single Pack of 5 doses) p3',
+    description: 'Goose Kiwi Go @ease Capsules 5 (Single Pack of 5 doses) p3',
     regularPrice: 9.99,
     specialPrice: 5.66,
     categoryId: 'p3',
@@ -80,7 +78,7 @@ export default class Home extends Vue {
   }))
   this.products.push(new Product({
     id: '2549072',
-    description: 'Go Healthy Go @ease Capsules 5 (Single Pack of 5 doses) p4',
+    description: 'Goose Kiwi Go @ease Capsules 5 (Single Pack of 5 doses) p4',
     regularPrice: 9.99,
     specialPrice: 5.66,
     categoryId: 'p4',
@@ -88,7 +86,7 @@ export default class Home extends Vue {
   }))
   this.products.push(new Product({
     id: '2549073',
-    description: 'Go Healthy Go @ease Capsules 5 (Single Pack of 5 doses) p5',
+    description: 'Goose Kiwi Go @ease Capsules 5 (Single Pack of 5 doses) p5',
     regularPrice: 9.99,
     isHotProduct: true,
     categoryId: 'p5',

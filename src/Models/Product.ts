@@ -6,6 +6,7 @@ export class Product {
     isHotProduct: boolean;
     categoryId: string;
     photo: any;
+    showPhoto: boolean;
     constructor(product: any = null) {
         this.id = product.id || '';
         this.description = product.description || '';
@@ -14,6 +15,7 @@ export class Product {
         this.isHotProduct = product.isHotProduct || false;
         this.categoryId = product.categoryId || '';
         this.photo= product.photo;
+        this.showPhoto = false;
     }
 
     get photoUrl() {

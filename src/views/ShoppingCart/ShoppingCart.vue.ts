@@ -36,7 +36,7 @@ export default class ShoppingCart extends Vue {
   getProducts() {
     this.products.push(new Product({
         id: '2549069',
-        description: 'Go Healthy Go @ease Capsules 5 (Single Pack of 5 doses) p1',
+        description: 'Goose Kiwi Go @ease Capsules 5 (Single Pack of 5 doses) p1',
         regularPrice: 9.99,
         specialPrice: 5.66,
         isHotProduct: true,
@@ -45,7 +45,7 @@ export default class ShoppingCart extends Vue {
     }))
     this.products.push(new Product({
       id: '2549070',
-      description: 'Go Healthy Go @ease Capsules 5 (Single Pack of 5 doses) p2',
+      description: 'Goose Kiwi Go @ease Capsules 5 (Single Pack of 5 doses) p2',
       regularPrice: 14.99,
       isHotProduct: true,
       categoryId: 'p2',
@@ -53,7 +53,7 @@ export default class ShoppingCart extends Vue {
   }))
   this.products.push(new Product({
     id: '2549071',
-    description: 'Go Healthy Go @ease Capsules 5 (Single Pack of 5 doses) p3',
+    description: 'Goose Kiwi Go @ease Capsules 5 (Single Pack of 5 doses) p3',
     regularPrice: 9.99,
     specialPrice: 5.66,
     categoryId: 'p3',
@@ -61,7 +61,7 @@ export default class ShoppingCart extends Vue {
   }))
   this.products.push(new Product({
     id: '2549072',
-    description: 'Go Healthy Go @ease Capsules 5 (Single Pack of 5 doses) p4',
+    description: 'Goose Kiwi Go @ease Capsules 5 (Single Pack of 5 doses) p4',
     regularPrice: 9.99,
     specialPrice: 5.66,
     categoryId: 'p4',
@@ -69,7 +69,7 @@ export default class ShoppingCart extends Vue {
   }))
   this.products.push(new Product({
     id: '2549073',
-    description: 'Go Healthy Go @ease Capsules 5 (Single Pack of 5 doses) p5',
+    description: 'Goose Kiwi Go @ease Capsules 5 (Single Pack of 5 doses) p5',
     regularPrice: 9.99,
     isHotProduct: true,
     categoryId: 'p5',
@@ -82,10 +82,8 @@ export default class ShoppingCart extends Vue {
     this.localStorage.forEach(x => {
       var item: any = this.products.find(p => p.id == x.productId);
       item.quantity = x.quantity;
-      console.log(item);
       this.shoppingCartList.push(new ShoppingCartItem(item));
     });
-    console.log(this.shoppingCartList);
   }
 
   updateDataInLocalStorage() {
@@ -97,10 +95,8 @@ export default class ShoppingCart extends Vue {
   }
 
   increaseQuantity(productId: string) {
-    console.log(productId);
     var item = this.localStorage.find(x => x.productId == productId);
     item.quantity++;
-    console.log(this.localStorage);
     this.updateDataInLocalStorage();
     this.updateShoppingCart();
   }
@@ -136,19 +132,13 @@ export default class ShoppingCart extends Vue {
 
     this.$dialog.confirm(message, options)
       .then(() => {
-        console.log("yes");
-        console.log(this.localStorage);
-        var even = _.find([1, 2, 3, 4, 5, 6], (num: any) => num % 2 == 0);
-        console.log(even);
         var item = this.localStorage.find( (x: any) => x.productId == productId);
         var index = this.localStorage.indexOf(item);
         this.localStorage.splice(index, 1);
-        console.log(this.localStorage);
         this.updateDataInLocalStorage();
         this.updateShoppingCart();
       })
       .catch(() => {
-        console.log("no");
       });
   }
 }

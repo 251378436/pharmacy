@@ -12,10 +12,10 @@ export default class Profile extends Vue {
     this.$router.push('login');
   }
 
-  decodeToken() {
-    var token = localStorage.getItem('token');
-    console.log(token);
-    var decoded = jwt_decode(token);
-    console.log(decoded);
-  }
+  // decodeToken() {
+  //   var token = localStorage.getItem('token');
+  //   console.log(token);
+  //   var decoded = jwt_decode(token);
+  //   console.log(decoded);
+  // }
 }

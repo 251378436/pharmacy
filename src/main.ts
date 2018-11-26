@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import VeeValidate from 'vee-validate';
+import cn from 'vee-validate/dist/locale/zh_CN';
 import App from './App.vue';
 import router from './router';
 import store from './store';
@@ -14,7 +15,12 @@ Vue.config.productionTip = false;
 
 Vue.use(VuejsDialog);
 
-Vue.use(VeeValidate);
+Vue.use(VeeValidate, {
+  locale: 'cn',
+  dictionary: {
+    cn: cn
+  }
+});
 
 
 router.beforeEach((to, from, next) => {
