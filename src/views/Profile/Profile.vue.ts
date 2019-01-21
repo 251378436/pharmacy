@@ -18,4 +18,5 @@ export default class Profile extends Vue {
   //   var decoded = jwt_decode(token);
   //   console.log(decoded);
   // }
+  // Add a test commite with Visual studio 2017 and Visual studio code
 }
